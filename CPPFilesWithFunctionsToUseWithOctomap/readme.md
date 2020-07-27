@@ -1,0 +1,1 @@
+Collection of some functions (static), which may be used when working with octomap.
