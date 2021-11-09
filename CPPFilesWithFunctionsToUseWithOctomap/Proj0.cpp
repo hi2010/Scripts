@@ -123,10 +123,10 @@ typedef boost::multi_array<float, 2> fMultiArr2D;
 int main() {
 //	modelToOctovis();
 //	for(int i = 0; i <= 99; i++){
-//		string filePath = "/home/louis/Documents/Models/data/stlfiles/testFile"+to_string(i)+".stl";
+//		string filePath = "/Documents/Models/data/stlfiles/testFile"+to_string(i)+".stl";
 //		stlToOt(filePath);
 //	}
-//	string filePath = "/home/louis/Documents/Models/data/stlfiles/testFile2.stl";
+//	string filePath = "/Documents/Models/data/stlfiles/testFile2.stl";
 //	stlToOt(filePath);
 //	openOtFileWithOctomap();
 
@@ -184,7 +184,7 @@ void testWorkflow(void){
 	} else {
 		// return of sprintf is not important, as there is no variable
 		// and if the path is bad the programmer -> me probbably fucked up :D
-		fileToOpen = "/home/louis/Documents/Models/CSG_1";
+		fileToOpen = "/Documents/Models/CSG_1";
 		cout << fileToOpen << endl;
 	}
 
@@ -212,7 +212,7 @@ void testWorkflow(void){
 }
 
 void testWorkflow2(){
-		OcTree btOt("/home/louis/Documents/Models/data/btFiles/testFile0.binvox.bt");
+		OcTree btOt("/Documents/Models/data/btFiles/testFile0.binvox.bt");
 		Pointcloud cylinderTool = createCircularPointCloud(1,btOt.getResolution());
 		OcTree machinedOt(btOt.getResolution());
 	//	insertTool(&machinedOt,cylinderTool,pose6d(0,0,0,0,0,0));
@@ -237,7 +237,7 @@ void testWorkflow2(){
 
 void testWorkflow3(void){
 
-	OcTree btOt("/home/louis/Documents/Models/data/btFiles/testFile0.binvox.bt");
+	OcTree btOt("/Documents/Models/data/btFiles/testFile0.binvox.bt");
 	Pointcloud cylinderTool = createCircularPointCloud(1,btOt.getResolution());
 	OcTree machinedOt(btOt.getResolution());
 
@@ -248,17 +248,17 @@ void testWorkflow3(void){
 
 	// these two files should look the same, but dont
 	// still looks way better. investigate if gcode scaling is screwed up
-//	ifstream file = readGCodeFile("/home/louis/Documents/Models/data/scaledGCodeFiles/scScaledtestFile0.ngc");
-//	ifstream file = readGCodeFile("/home/louis/Documents/Models/data/scaledGcode2/scScaledtestFile0.ngc");
-//	ifstream file = readGCodeFile("/home/louis/Documents/Models/data/scledGCode001mm/scScaledtestFile0.ngc");
+//	ifstream file = readGCodeFile("/Documents/Models/data/scaledGCodeFiles/scScaledtestFile0.ngc");
+//	ifstream file = readGCodeFile("/Documents/Models/data/scaledGcode2/scScaledtestFile0.ngc");
+//	ifstream file = readGCodeFile("/Documents/Models/data/scledGCode001mm/scScaledtestFile0.ngc");
 	// scaled gcode und somit py2 enthält fehler
-//	ifstream file = readGCodeFile("/home/louis/Documents/Models/data/scaledGCodes3_001mm/scScaledtestFile0.ngc");
+//	ifstream file = readGCodeFile("/Documents/Models/data/scaledGCodes3_001mm/scScaledtestFile0.ngc");
 	// rewo3 of py2 looks good again hopefully this is good one
-//	ifstream file = readGCodeFile("/home/louis/Documents/Models/data/scaledGCodes3_001mm/scScaledtestFile0.ngc");
+//	ifstream file = readGCodeFile("/Documents/Models/data/scaledGCodes3_001mm/scScaledtestFile0.ngc");
 	// rewo3 with 1mm
-	ifstream file = readGCodeFile("/home/louis/Documents/Models/data/scaledGCode1mmWithPy2/scScaledtestFile0.ngc");
+	ifstream file = readGCodeFile("/Documents/Models/data/scaledGCode1mmWithPy2/scScaledtestFile0.ngc");
 
-	ofstream stateFile = ofstream("/home/louis/Documents/Models/testStatesFile0_1.state");
+	ofstream stateFile = ofstream("/Documents/Models/testStatesFile0_1.state");
 
 	point3d origin;
 	point3d destination;
@@ -329,7 +329,7 @@ void testWorkflow3(void){
 
 
 void testWorkflow4(void){
-	OcTree btOt("/home/louis/Documents/Models/data/btFiles/testFile0.binvox.bt");
+	OcTree btOt("/Documents/Models/data/btFiles/testFile0.binvox.bt");
 	double btOtMin[3];
 	double btOtMax[3];
 	btOt.getMetricMin(btOtMin[0],btOtMin[1],btOtMin[2]);
@@ -350,7 +350,7 @@ void testWorkflow4(void){
 
 //	plot2DVectorWithGnuPlot(myMap);
 	plot2DVectorWithGnuPlot(myMap2);
-	ofstream file = ofstream("/home/louis/Documents/Models/leafDmGen");
+	ofstream file = ofstream("/Documents/Models/leafDmGen");
 	write2DVectorToFile(myMap2, file);
 
 }
@@ -360,12 +360,12 @@ void testWorkflow5(void){
 
 	//TODO implement new insertToolInLine
 	//TODO use files list to create trainings data
-	auto filesList = retrieveFilesListFromPath("/home/louis/Documents/Models/",".state");
+	auto filesList = retrieveFilesListFromPath("/Documents/Models/",".state");
 
 //	return;
 
 	// open targetfile as octree, needed to retrieve parameters and generate states
-	OcTree btOt("/home/louis/Documents/Models/data/btFiles/testFile0.binvox.bt");
+	OcTree btOt("/Documents/Models/data/btFiles/testFile0.binvox.bt");
 	Pointcloud cylinderTool = createCircularPointCloud(1,btOt.getResolution());
 	OcTree machinedOt(btOt.getResolution());
 
@@ -379,16 +379,16 @@ void testWorkflow5(void){
 	//------------------------------------------------------------
 
 	// rewo3 with 1mm
-	ifstream file = readGCodeFile("/home/louis/Documents/Models/data/scaledGCode1mmWithPy2/scScaledtestFile0.ngc");
+	ifstream file = readGCodeFile("/Documents/Models/data/scaledGCode1mmWithPy2/scScaledtestFile0.ngc");
 
 	// file path for states of the machined part
-	string stateFilePath = "/home/louis/Documents/Models/testStatesFile0_isStates.state";
+	string stateFilePath = "/Documents/Models/testStatesFile0_isStates.state";
 	// if file does not end with statefile extension add statefile extension
 	if (!(stateFilePath.substr(stateFilePath.find_last_of("."))==STATEFILE_EXTENSION)) stateFilePath += STATEFILE_EXTENSION;
 	ofstream stateFile = ofstream(stateFilePath);
 
 	// file path for states of the target file
-	string stateFilePathTarget = "/home/louis/Documents/Models/testStatesFile0_targetStates.state";
+	string stateFilePathTarget = "/Documents/Models/testStatesFile0_targetStates.state";
 	// if file does not end with statefile extension add statefile extension
 	if (!(stateFilePathTarget.substr(stateFilePathTarget.find_last_of("."))==STATEFILE_EXTENSION)) stateFilePathTarget += STATEFILE_EXTENSION;
 	ofstream stateFileTarget = ofstream(stateFilePathTarget);
@@ -494,7 +494,7 @@ void testWorkflow5(void){
  */
 void testWorkflow6(void){
 	// create fileslist
-	vector<string> filesList = retrieveFilesListFromPath("/home/louis/Documents/Models/data/btFiles/",".bt");
+	vector<string> filesList = retrieveFilesListFromPath("/Documents/Models/data/btFiles/",".bt");
 
 	chrono::microseconds usBeforeAllStateGen = chrono::duration_cast<chrono::microseconds>(chrono::system_clock::now().time_since_epoch());
 
@@ -505,12 +505,12 @@ void testWorkflow6(void){
 //	for (string file : filesList){
 		string filename = getFileNameFromPathWithoutFileExtension(file,2);
 		// inputs
-		string gCodePath = "/home/louis/Documents/Models/data/gCodeFixedAndScaled/scScaled" + filename + ".ngc";
-		string btPath = "/home/louis/Documents/Models/data/btFiles/" + filename + ".binvox.bt";
+		string gCodePath = "/Documents/Models/data/gCodeFixedAndScaled/scScaled" + filename + ".ngc";
+		string btPath = "/Documents/Models/data/btFiles/" + filename + ".binvox.bt";
 		// outputs
-		string machinedBtPath = "/home/louis/Documents/Models/data/machinedBtFiles4/" + filename;
-		string stateFilePath = "/home/louis/Documents/Models/data/isStateFiles4/" + filename + STATEFILE_EXTENSION;
-		string targetStateFilePath = "/home/louis/Documents/Models/data/targetStateFiles4/" + filename + STATEFILE_EXTENSION;
+		string machinedBtPath = "/Documents/Models/data/machinedBtFiles4/" + filename;
+		string stateFilePath = "/Documents/Models/data/isStateFiles4/" + filename + STATEFILE_EXTENSION;
+		string targetStateFilePath = "/Documents/Models/data/targetStateFiles4/" + filename + STATEFILE_EXTENSION;
 		createTrainingdata(gCodePath, btPath, machinedBtPath, stateFilePath, targetStateFilePath);
 	}
 
@@ -525,12 +525,12 @@ void testWorkflow6(void){
 
 // test predictor network
 void testWorkflow7(void){
-	string gCodeFilePath = "/home/louis/Documents/eclipse-workspace/Proj0/src/knnScripts/testGCode.gcode";
+	string gCodeFilePath = "/Documents/eclipse-workspace/Proj0/src/knnScripts/testGCode.gcode";
 	ofstream gCodeFile = ofstream(gCodeFilePath);
 	gCodeFile << "G91" << "\n" << "G01" << endl;
-	string btOtPath = "/home/louis/Documents/Models/data/btFiles/testFile0.binvox.bt";
+	string btOtPath = "/Documents/Models/data/btFiles/testFile0.binvox.bt";
 	OcTree btOt = OcTree(btOtPath);
-//	string machinedBtPath = "/home/louis/Documents/Models/data/machinedBtFiles3/testFile0.bt";
+//	string machinedBtPath = "/Documents/Models/data/machinedBtFiles3/testFile0.bt";
 //	OcTree mOt = OcTree(machinedBtPath);
 	double resol = btOt.getResolution();
 	OcTree mOt = OcTree(resol);
@@ -560,7 +560,7 @@ void testWorkflow7(void){
 	origin.z() = btOtMax[2];
 
 
-	string pathToVenv = "/home/louis/plaidml-venv/bin/python3.6";
+	string pathToVenv = "/plaidml-venv/bin/python3.6";
 	string currentPath = GetCurrentWorkingDir();
 	cout << "working in: " << currentPath << endl;
 	string cmd = pathToVenv + " " + currentPath + "/src/knnScripts/genPredictions.py";
@@ -638,7 +638,7 @@ void testWorkflow7(void){
 		origin.y() = destination.y();
 		origin.z() = destination.z();
 
-		saveOcTree(&mOt, true, "/home/louis/Documents/Models/data/testRuns2/run/testOt"+to_string(i)+".bt");
+		saveOcTree(&mOt, true, "/Documents/Models/data/testRuns2/run/testOt"+to_string(i)+".bt");
 	}
 
 }
@@ -649,18 +649,18 @@ void testWorkflow7(void){
  */
 void testWorkflow8(void){
 	// create fileslist
-	// vector<string> filesList = retrieveFilesListFromPath("/home/louis/Documents/Models/data/btFiles/",".bt");
+	// vector<string> filesList = retrieveFilesListFromPath("/Documents/Models/data/btFiles/",".bt");
 
 	chrono::microseconds usBeforeAllStateGen = chrono::duration_cast<chrono::microseconds>(chrono::system_clock::now().time_since_epoch());
 
 	string filename = "testFile65";
 		// inputs
-		string gCodePath = "/home/louis/Documents/Models/data/gCodeFixedAndScaled/scScaled" + filename + ".ngc";
-		string btPath = "/home/louis/Documents/Models/data/btFiles/" + filename + ".binvox.bt";
+		string gCodePath = "/Documents/Models/data/gCodeFixedAndScaled/scScaled" + filename + ".ngc";
+		string btPath = "/Documents/Models/data/btFiles/" + filename + ".binvox.bt";
 		// outputs
-		string machinedBtPath = "/home/louis/Documents/Models/data/machinedBtFiles4/" + filename;
-		string stateFilePath = "/home/louis/Documents/Models/data/isStateFiles4/" + filename + "IsState" + STATEFILE_EXTENSION;
-		string targetStateFilePath = "/home/louis/Documents/Models/data/targetStateFiles4/" + filename + "TargetState" + STATEFILE_EXTENSION;
+		string machinedBtPath = "/Documents/Models/data/machinedBtFiles4/" + filename;
+		string stateFilePath = "/Documents/Models/data/isStateFiles4/" + filename + "IsState" + STATEFILE_EXTENSION;
+		string targetStateFilePath = "/Documents/Models/data/targetStateFiles4/" + filename + "TargetState" + STATEFILE_EXTENSION;
 		createTrainingdata(gCodePath, btPath, machinedBtPath, stateFilePath, targetStateFilePath);
 
 
@@ -683,7 +683,7 @@ void modelToOctovis(void){
 	if (SELECT_FILE){
 		fileToOpen = openFile();
 	} else {
-		fileToOpen = "/home/louis/Documents/Models/CSG_1";
+		fileToOpen = "/Documents/Models/CSG_1";
 	}
 
 	cout << fileToOpen << endl;
@@ -1084,18 +1084,18 @@ int openOtFileWithOctomap(void){
 	//string pathToFile = openFile();
 	//double res = 0.05;  // create empty tree with resolution 0.05 (different from default 0.1 for test)
 	//const string& fn = pathToFile;
-//	string fn = "/home/louis/Documents/Models/f5-tiger-scale-model-1-64-by-guaro3d/Fuselaje1_1.binvox.bt.ot";
-//	string fn = "/home/louis/Documents/Models/f5-tiger-scale-model-1-64-by-guaro3d/Aladerecha.binvox.bt.ot";
-//	string fn = "/home/louis/Documents/Models/f5-tiger-scale-model-1-64-by-guaro3d/Fuselaje1.binvox.bt.ot";
-//	string fn = "/home/louis/Documents/Models/turbocharger-with-electric-motor-by-bulgakova-tanya/IMPELLER_1.binvox.bt.ot";
+//	string fn = "/Documents/Models/f5-tiger-scale-model-1-64-by-guaro3d/Fuselaje1_1.binvox.bt.ot";
+//	string fn = "/Documents/Models/f5-tiger-scale-model-1-64-by-guaro3d/Aladerecha.binvox.bt.ot";
+//	string fn = "/Documents/Models/f5-tiger-scale-model-1-64-by-guaro3d/Fuselaje1.binvox.bt.ot";
+//	string fn = "/Documents/Models/turbocharger-with-electric-motor-by-bulgakova-tanya/IMPELLER_1.binvox.bt.ot";
 
-	string fn = "/home/louis/Documents/Models/data/testFile82.binvox.bt.ot";
+	string fn = "/Documents/Models/data/testFile82.binvox.bt.ot";
 //	double res = .05;
 //	OcTree tr(res);
 	octomap::OcTree* tree = dynamic_cast<OcTree*>(octomap::OcTree::read(fn));
 	OcTree* octrees = dynamic_cast<OcTree*>(tree);
 
-	OcTree btOt("/home/louis/Documents/Models/data/btFiles/testFile0.binvox.bt");
+	OcTree btOt("/Documents/Models/data/btFiles/testFile0.binvox.bt");
 //	btOt.leaf_iterator();
 
 	// create ot with same resolution. should later be used to generate the nodified surface
