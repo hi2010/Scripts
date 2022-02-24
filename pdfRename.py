@@ -53,8 +53,11 @@ def rnPdfsByTitle(pat, usePrint=True):
 if __name__ == "__main__":
     print("This script tries to rename pdf files based on title (inplace)")
     p = filedialog.askdirectory()
+    if p == "":
+        # no path was entered
+        exit()
     pat = Path(p)
     print("Reanaming files with titles in: ", p)
     rnPdfsByTitle(pat)
     # if run directly, wait for input to close the console
-    input()
+    input("finished, press any key to exit.")
